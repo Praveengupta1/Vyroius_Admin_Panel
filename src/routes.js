@@ -6,8 +6,16 @@ import TableList from "views/TableList.js";
 import Maps from "views/Maps.js";
 import Upgrade from "views/Upgrade.js";
 import UserPage from "views/UserPage.js";
+import Users from "views/User";
 
 var dashRoutes = [
+  {
+    path: "/admin/users",
+    name: "User List",
+    icon: "design_app",
+    component: Users,
+    layout: "/admin",
+  },
   {
     path: "/dashboard",
     name: "Dashboard",
