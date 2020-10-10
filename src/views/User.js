@@ -12,7 +12,7 @@ import * as Actions from "../Redux/actions/index";
 
 const mapStateToProps = (state) => {
   return {
-    login_details: state,
+    store: state.State,
   };
 };
 
@@ -25,11 +25,6 @@ function mapDispatchToProps(dispatch) {
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      email: "",
-      password: "",
-      remeber: true,
-    };
   }
 
   onSubmit = (event) => {
@@ -45,7 +40,9 @@ class Login extends Component {
     return (
       <>
         <div style={{ margin: "20%" }}>
-          <button onClick={this.onSubmit}>click </button>
+          <button onClick={this.onSubmit}>
+            click me and getting all user data{" "}
+          </button>
         </div>
       </>
     );

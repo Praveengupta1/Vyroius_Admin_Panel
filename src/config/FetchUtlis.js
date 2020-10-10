@@ -42,7 +42,7 @@ export function fetchDataAndProceed(url, method, data, callback, headerData) {
   })
     .then((response) => {
       debugger;
-
+      showMessage("success", response.data.message);
       callback(false, response.data);
     })
     .catch((error) => {

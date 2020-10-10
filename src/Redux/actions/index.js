@@ -9,12 +9,14 @@ export function getusers(paylaod, callback) {
         type: actionType.LOADING,
       });
       if (!error) {
+        console.log(response.users);
+        showMessage("success", response.message && response.message);
         dispatch({
           type: actionType.FETCH_USER_DATA,
-          paylaod: response,
+          payload: response.users,
         });
       }
-      if (!error) {
+      if (error) {
         dispatch({
           type: actionType.FETCH_USER_DATA_FAILED,
         });

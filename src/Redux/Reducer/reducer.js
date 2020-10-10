@@ -1,21 +1,26 @@
-import * as actionTypes from "../actionType/index";
-import State from "../state";
+import * as ACTION_TYPE from "../actionType/index";
 
-const reducer = (state = State, action) => {
-  switch (action) {
-    case actionTypes.FETCH_USER_DATA:
+const initailState = {
+  loading: false,
+  users: [],
+};
+
+const Reducer = (state = initailState, action) => {
+  switch (action.type) {
+    case ACTION_TYPE.LOADING:
+      return { ...state, loading: true };
+
+    case ACTION_TYPE.FETCH_USER_DATA:
       return {
         ...state,
+        loading: false,
         users: action.payload,
-        loading: true,
       };
-    case actionTypes.FETCH_USER_DATA_FAILED:
-      return { ...state, loadig: false };
-    case actionTypes.LOADING:
-      return { ...state, loading: true };
+    case ACTION_TYPE.FETCH_USER_DATA_FAILED:
+      return state;
     default:
-      return { state };
+      return state;
   }
 };
 
-export default reducer;
+export default Reducer;
