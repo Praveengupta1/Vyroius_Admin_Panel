@@ -35,26 +35,25 @@ class Login extends Component {
     super(props);
   }
 
-  onSubmit = (event) => {
-    const payload = {};
-
-    const show = () => {
-      console.log("this.props.login_details.isAuth");
-    };
-    this.props.actions.getusers(payload);
-  };
+ 
   componentDidMount(){
     const  payload={};
     //alert("exec")
-     this.props.actions.getusers(payload);
+     this.props.actions.getBattery(payload);
    }
   render() {
-    const tableHeader=["id","Firstname","LastName","email","Phone No"]
+    const tableHeader=["Battery Id"," Battery Name","ecosystem","hub","Station","Drone","Created At"]
     const tableBody = [ ];
-      if(this.props.state.users){
-        this.props.state.users.map((user)=>{
+      if(this.props.state.battery){
+        this.props.state.battery.map((b)=>{
           tableBody.push(
-          [ user._id?user._id:null, user.firstName?user.firstName:null,user.lastName?user.lastName:null,user.email?user.email:null,user.phoneNumber?user.phoneNumber:null,
+          [ b.battery?b.battery:"--",
+          b.name?b.name:null,
+            b.ecosystem?b.ecosystem:"--",
+            b.hub?b.hub:"--",
+            b.station?b.station:"--",
+            b.drone?b.drone:"--",
+            b.createdAt?b.createdAt:"--"
                      ] );
         })
        

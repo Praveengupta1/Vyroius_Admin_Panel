@@ -25,7 +25,7 @@ class Footer extends React.Component {
   render() {
     return (
       <footer
-        className={"footer" + (this.props.default ? " footer-default" : "")}
+              className={"footer" + (this.props.default ? " footer-default" : "")}
       >
         <Container fluid={this.props.fluid ? true : false}>
           <nav>
@@ -35,7 +35,7 @@ class Footer extends React.Component {
                   href="https://www.creative-tim.com?ref=nudr-footer"
                   target="_blank"
                 >
-                  Creative Tim
+                 Vyorius
                 </a>
               </li>
               <li>
@@ -59,20 +59,13 @@ class Footer extends React.Component {
           <div className="copyright">
             &copy; {1900 + new Date().getYear()}, Designed by{" "}
             <a
-              href="https://www.invisionapp.com"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Invision
+              Praveen
             </a>
-            . Coded by{" "}
-            <a
-              href="https://www.creative-tim.com?ref=nudr-footer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Creative Tim
-            </a>
+           
             .
           </div>
         </Container>

@@ -41,20 +41,20 @@ class Login extends Component {
     const show = () => {
       console.log("this.props.login_details.isAuth");
     };
-    this.props.actions.getusers(payload);
+    this.props.actions.getDrones(payload);
   };
   componentDidMount(){
     const  payload={};
     //alert("exec")
-     this.props.actions.getusers(payload);
+     this.props.actions.getDrones(payload);
    }
   render() {
-    const tableHeader=["id","Firstname","LastName","email","Phone No"]
+    const tableHeader=["DroneId","name","Ecosystem","Hub","Station"]
     const tableBody = [ ];
-      if(this.props.state.users){
-        this.props.state.users.map((user)=>{
+      if(this.props.state.drones){
+        this.props.state.drones.map((drone)=>{
           tableBody.push(
-          [ user._id?user._id:null, user.firstName?user.firstName:null,user.lastName?user.lastName:null,user.email?user.email:null,user.phoneNumber?user.phoneNumber:null,
+          [ drone.drone?drone.drone:null, drone.name?drone.name:null,drone.ecosystem?drone.ecosystem:null,drone.hub?drone.hub:null,drone.station?drone.station:null,
                      ] );
         })
        

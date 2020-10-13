@@ -2980,7 +2980,10 @@ Created using IcoMoon - icomoon.io
   height: 380px; }
 
 .footer {
-  padding: 24px 0; }
+  padding: 24px 0;
+  margin-top: 800px;  
+margin-bottom: 0px;
+}
   .footer.footer-default {
     background-color: #f2f2f2; }
   .footer nav {

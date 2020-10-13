@@ -66,10 +66,10 @@ class Sidebar extends React.Component {
             className="simple-text logo-normal"
             target="_blank"
           >
-            Creative Tim
+            Vyorius Admin Layout
           </a>
         </div>
-        <div className="sidebar-wrapper" ref="sidebar">
+        <div className="sidebar-wrapper" ref="sidebar" >
           <Nav>
             {this.props.routes.map((prop, key) => {
               if (prop.redirect) return null;

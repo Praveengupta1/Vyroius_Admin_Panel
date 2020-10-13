@@ -35,26 +35,25 @@ class Login extends Component {
     super(props);
   }
 
-  onSubmit = (event) => {
-    const payload = {};
 
-    const show = () => {
-      console.log("this.props.login_details.isAuth");
-    };
-    this.props.actions.getusers(payload);
-  };
   componentDidMount(){
     const  payload={};
     //alert("exec")
-     this.props.actions.getusers(payload);
+     this.props.actions.getEcosystems(payload);
    }
   render() {
-    const tableHeader=["id","Firstname","LastName","email","Phone No"]
+    const tableHeader=["Ecostsem Id","Ecosystem name","Organization","hubs","Station","Drone","Created At"]
     const tableBody = [ ];
-      if(this.props.state.users){
-        this.props.state.users.map((user)=>{
+      if(this.props.state.ecosystems){
+        this.props.state.ecosystems.map((ecosystem)=>{
           tableBody.push(
-          [ user._id?user._id:null, user.firstName?user.firstName:null,user.lastName?user.lastName:null,user.email?user.email:null,user.phoneNumber?user.phoneNumber:null,
+          [ ecosystem.ecosystem?ecosystem.ecosystem:null, 
+            ecosystem.name?ecosystem.name:null,
+            ecosystem.organization? ecosystem.organization:null,
+            ecosystem.hubs?ecosystem.hubs:"--",            
+            ecosystem.stations?ecosystem.stations:"--",
+            ecosystem.drones?ecosystem.droens:"--",
+            ecosystem.createdAt?ecosystem.createdAt:"--",
                      ] );
         })
        
