@@ -35,30 +35,48 @@ class Login extends Component {
     super(props);
   }
 
-  onSubmit = (event) => {
-    const payload = {};
+  state={
+   accepted:false,
+   rejected:false,
+  } 
 
-    const show = () => {
-      console.log("this.props.login_details.isAuth");
-    };
-    this.props.actions.getusers(payload);
-  };
   componentDidMount(){
     const  payload={};
     //alert("exec")
-     this.props.actions.getusers(payload);
+     this.props.actions.getOrganizations(payload);
    }
+   handleAcceptRequest=(o)=>{
+       console.log(o);
+       this.props.actions.acceptRequest({orgId:o._id,userId:o.user.id,package:o.package,name:o.user.name,email:o.user.email});
+   }
+   handleRejectRequest=(o)=>{
+    this.props.actions.rejectRequest({orgId:o._id,userId:o.user.id,package:o.package});
+    }
+
   render() {
-    const tableHeader=["id","Firstname","LastName","email","Phone No"]
-    const tableBody = [ ];
-      if(this.props.state.users){
-        this.props.state.users.map((user)=>{
-          tableBody.push(
-          [ user._id?user._id:null, user.firstName?user.firstName:null,user.lastName?user.lastName:null,user.email?user.email:null,user.phoneNumber?user.phoneNumber:null,
+    const tableHeader=["User Name","Email","Organization Name","Organization Id","Package","Actions"]
+    const tableBody = [];
+    
+      if(this.props.state.organization){
+        this.props.state.organization.map((o)=>{
+          tableBody.push(            
+          [ o.user.name?o.user.name:"--",
+            o.user.email? o.user.email:"--",
+            o.organization.name?o.organization.name:"--",
+            o.organization.id?o.organization.id:"--",
+            o.package?o.package:"--",  
+            <>       
+                <Button variant="contained" color="primary"  onClick={(e)=>{this.handleAcceptRequest(o)}}
+                style={{marginRight:10}}
+                >{o.accept?"Accepted":"Accept"}
+                </Button>
+             <Button variant="contained" onClick={(e)=>{this.handleRejectRequest(o)}}>{o.reject?"Rejected":"Reject"}</Button>
+             </>
                      ] );
-        })
-       
-      }
+        })  
+    }
+
+      
   
     
     return (

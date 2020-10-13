@@ -1,12 +1,13 @@
-import Dashboard from "views/Dashboard.js";
-import Notifications from "views/Notifications.js";
-import Icons from "views/Icons.js";
-import Typography from "views/Typography.js";
-import TableList from "views/TableList.js";
-import Maps from "views/Maps.js";
-import Upgrade from "views/Upgrade.js";
-import UserPage from "views/UserPage.js";
+import Ecosystem from "views/Ecosystems";
+import Drone from "views/Drone.js";
+import Hubs from "views/Hubs";
+import Station from "views/Stations.js";
 import Users from "views/User";
+import Battery from "views/Battery";
+import Payload from "views/Payload";
+import Sensor from "views/Sensor";
+import Request from "views/Request"
+
 
 var dashRoutes = [
   {
@@ -17,60 +18,59 @@ var dashRoutes = [
     layout: "/admin",
   },
   {
-    path: "/dashboard",
-    name: "Dashboard",
+    path: "/admin/ecosystems",
+    name: "Ecosystem",
     icon: "design_app",
-    component: Dashboard,
+    component: Ecosystem,
     layout: "/admin",
   },
   {
-    path: "/icons",
-    name: "Icons",
+    path: "/admin/hubs",
+    name: "Hubs",
     icon: "design_image",
-    component: Icons,
+    component: Hubs,
     layout: "/admin",
   },
   {
-    path: "/maps",
-    name: "Maps",
+    path: "/admin/stations",
+    name: "Station",
     icon: "location_map-big",
-    component: Maps,
+    component: Station,
     layout: "/admin",
   },
   {
-    path: "/notifications",
-    name: "Notifications",
+    path: "/admin/drones",
+    name: "Drone",
     icon: "ui-1_bell-53",
-    component: Notifications,
+    component: Drone,
     layout: "/admin",
   },
   {
-    path: "/user-page",
-    name: "User Profile",
-    icon: "users_single-02",
-    component: UserPage,
+    path: "/admin/battery",
+    name: "Battery",
+    icon: "design_app",
+    component: Battery,
     layout: "/admin",
   },
   {
-    path: "/extended-tables",
-    name: "Table List",
-    icon: "files_paper",
-    component: TableList,
+    path: "/admin/Payload",
+    name: "Payload",
+    icon: "ui-1_bell-53",
+    component: Payload,
     layout: "/admin",
   },
   {
-    path: "/typography",
-    name: "Typography",
-    icon: "design-2_ruler-pencil",
-    component: Typography,
+    path: "/admin/Sensor",
+    name: "Sensor",
+    icon: "design_app",
+    component: Sensor,
     layout: "/admin",
   },
   {
-    pro: true,
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    icon: "objects_spaceship",
-    component: Upgrade,
+    path: "/admin/organization",
+    name: "Organization",
+    icon: "design_app",
+    component: Request,
     layout: "/admin",
   },
 ];
